@@ -22,8 +22,8 @@ def get_filters():
     month = ""
     day = ""
     
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
-    cities = ['chicago', 'new york city', 'washington'];
+    # Prompt user for city input; validate using a loop until a correct city is entered
+    cities = ['chicago', 'new york city', 'washington']
     while True:
         city = input("Choose a city (chicago, new york city, washington): ").lower()
         if city in cities:
@@ -31,7 +31,7 @@ def get_filters():
         print("Sorry! We don't have data about this city. Please try again!")
 
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # Prompt user for month input; allow filtering by specific month or no filter ('all')
     months = ['january', 'february', 'march', 'april', 'may', 'june', 'all']
     while True:
         month = input("Choose a month (january to june) or 'all': ").lower()
@@ -40,7 +40,7 @@ def get_filters():
         print("Sorry! We don't have data about this month. Please try again!")
 
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # Prompt user for day input; allow filtering by specific day or no filter ('all')
     days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']
     while True:
         day = input("Choose a day of week or 'all': ").lower()
@@ -94,15 +94,15 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    # Display the most common month for bike travel
     print('Most common month: ', df['month'].value_counts().index[0])
 
 
-    # TO DO: display the most common day of week
+    # Display the most common day of the week for bike travel
     print('Most common day of week: ', df['day_of_week'].value_counts().index[0])
     
 
-    # TO DO: display the most common start hour
+    # Display the most frequent start hour for bike travel
     print('Most common start hour: ',df['hour'].value_counts().index[0])
 
 
@@ -116,13 +116,13 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    # Display the most commonly used start station
     print('Most Common Start Station: ', df['Start Station'].value_counts().index[0])
 
-    # TO DO: display most commonly used end station
+    # Display the most commonly used end station
     print('Most Common End Station: ', df['End Station'].value_counts().index[0])
 
-    # TO DO: display most frequent combination of start station and end station trip
+    # Display the most frequent combination of start and end stations
     df['Station Combination'] = df['Start Station'] + ' (start) and ' + df['End Station'] + ' (end).'
     print('The most common station combination for your selection is ', 
           df['Station Combination'].value_counts().index[0], '\n')
@@ -137,10 +137,10 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    # Display the total trip duration for selected data
     print('Total Travel Time: ', df['Trip Duration'].sum())
 
-    # TO DO: display mean travel time
+    # Display the average trip duration
     print('Mean Travel Time: ', df['Trip Duration'].mean())
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -153,14 +153,14 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    # Display user type counts (e.g., Subscriber vs Customer)
     print('Counts of user types: ', df['User Type'].value_counts())
 
-    # TO DO: Display counts of gender
+    # Display gender distribution (if available in dataset)
     if 'Gender' in df.columns:
       print('Counts of gender: ', df['Gender'].value_counts())
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    # Display birth year stats: earliest, most recent, and most common (if available)
     if 'Birth Year' in df.columns:
       print('Most earliest year of birth: ', df['Birth Year'].sort_values().iloc[0])
       print('Most recent year of birth: ', df['Birth Year'].sort_values(ascending = False).iloc[0])
