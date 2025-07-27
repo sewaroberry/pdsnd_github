@@ -1,5 +1,5 @@
-### Date created
-This file was created on 12/July/2025
+### Date Created
+12/July/2025
 
 ### Project Title
 Bike Share Data Analysis Project
@@ -28,6 +28,13 @@ The original datasets were cleaned and condensed to focus on these core columns,
 - `chicago.csv` — Chicago bike share data  
 - `new_york_city.csv` — New York City bike share data  
 - `washington.csv` — Washington, D.C. bike share data
+
+### Roadmap
+- Add visualization of trip data on maps  
+- Support additional cities and datasets  
+- Improve user interface for better interactivity  
+- Refactor code for better modularity and testability  
+- Add unit tests and automated testing workflow
 
 ### Credits
 - Data and project details provided by [Udacity](https://www.udacity.com/)  

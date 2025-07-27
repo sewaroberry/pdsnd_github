@@ -175,16 +175,24 @@ def main():
         city, month, day = get_filters()
         df = load_data(city, month, day)
         
+        # Ask the user how many rows of raw data they want to see
         row_index = 0
         while True:
-            show = input("Would you like to see 5 rows of raw data? (yes or no): ").lower()
-            if show != 'yes':
+            show_data = input("Would you like to view raw data? Type 'yes' or 'no': ").lower()
+            if show_data != 'yes':
                 break
-            print(df.iloc[row_index:row_index+5])
-            row_index += 5
-            if row_index >= len(df):
-                print("No more raw data to display.")
-                break
+
+            # Ask how many rows to display
+            try:
+                num_rows = int(input("How many rows would you like to see? (Enter a number): "))
+                print(df.iloc[row_index:row_index + num_rows])
+                row_index += num_rows
+                if row_index >= len(df):
+                    print("No more raw data to display.")
+                    break
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
 
         time_stats(df)
         station_stats(df)
